@@ -1,0 +1,6 @@
+server:
+  port: 8082
+  context-path: /girl
+girl:
+  name: A
+  age: 18
