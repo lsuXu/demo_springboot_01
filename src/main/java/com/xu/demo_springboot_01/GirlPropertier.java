@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "girl")
 //要注入使用，将类转换为bean,使得在其他类中通过@Autowired注入
 @Component
-public class Girl {
+public class GirlPropertier {
     private String name;
     private Integer age;
 

@@ -1,20 +1,18 @@
 package com.xu.demo_springboot_01;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+//@RestController = @Controller + @ResponseBody  @Controller需配合模板使用
+@RestController
+@RequestMapping("hello")
 public class HelloController {
 
     @Autowired
-    private Girl girl;
+    private GirlPropertier girl;
 
-    @RequestMapping(value = "/hello" ,method = RequestMethod.GET)
-    public String say(){
-    //    return girl.getName();
-        return "index";
+    @RequestMapping(value = "/say" ,method = RequestMethod.GET)
+    public Integer say(@RequestParam(value = "id",required = false,defaultValue ="1") Integer myId){
+        return  myId;
     }
 }
