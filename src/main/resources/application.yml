@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/dbGirl
@@ -8,5 +6,7 @@ spring:
     password: 123456
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto:
     show-sql: true
+  profiles:
+    active: dev
