@@ -1,5 +1,6 @@
-package com.xu.demo_springboot_01;
+package com.xu.demo_springboot_01.controller;
 
+import com.xu.demo_springboot_01.properties.GirlPropertier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

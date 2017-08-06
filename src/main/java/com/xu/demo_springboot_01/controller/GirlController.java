@@ -1,5 +1,8 @@
-package com.xu.demo_springboot_01;
+package com.xu.demo_springboot_01.controller;
 
+import com.xu.demo_springboot_01.domain.Girl;
+import com.xu.demo_springboot_01.repository.GirlRepository;
+import com.xu.demo_springboot_01.services.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

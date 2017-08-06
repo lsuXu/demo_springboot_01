@@ -1,4 +1,4 @@
-package com.xu.demo_springboot_01;
+package com.xu.demo_springboot_01.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
