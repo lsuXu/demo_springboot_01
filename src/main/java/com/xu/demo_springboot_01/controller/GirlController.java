@@ -4,8 +4,10 @@ import com.xu.demo_springboot_01.domain.Girl;
 import com.xu.demo_springboot_01.repository.GirlRepository;
 import com.xu.demo_springboot_01.services.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
     @RestController
@@ -47,10 +49,11 @@ import java.util.List;
 
         //插入一个女生
         @PostMapping(value = "/girls")
-        public Girl girls(@RequestParam("name") String name,@RequestParam("age") Integer age){
-            Girl girl = new Girl();
-            girl.setAge(age);
-            girl.setName(name);
+        public Girl girls(@Valid Girl girl, BindingResult bindingResult){
+            if(bindingResult.hasErrors()){
+                System.out.println(bindingResult.getFieldError().getDefaultMessage());
+                    return null;
+            }
             return girlRepository.save(girl);
         }
 

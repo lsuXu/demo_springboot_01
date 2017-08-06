@@ -3,6 +3,7 @@ package com.xu.demo_springboot_01.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Girl {
@@ -13,7 +14,9 @@ public class Girl {
 
     private String name ;
 
+    @Min(value = 18,message = "未成年")//注解设置age最小值，message即不满足条件时的提示信息
     private Integer age ;
+
     public Girl() {
     };
 
