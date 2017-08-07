@@ -1,6 +1,7 @@
 package com.xu.demo_springboot_01.utils;
 
 import com.xu.demo_springboot_01.domain.Result;
+import com.xu.demo_springboot_01.exception.GirlException;
 
 public class ResultUtil {
 
@@ -18,7 +19,7 @@ public class ResultUtil {
         return success(null);
     }
 
-    public static Result error(Integer code,String msg){
+    public static Result error(Integer code ,String msg){
         Result result = new Result();
         result.setMsg(msg);
         result.setCode(code);
