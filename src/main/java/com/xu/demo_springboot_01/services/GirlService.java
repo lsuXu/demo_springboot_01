@@ -24,4 +24,15 @@ public class GirlService {
         girlB.setAge( 11 );
         girlRepository.save(girlB);
     }
+
+    public void getAge(Integer id) throws Exception{
+        Integer age = girlRepository.findOne(id).getAge();
+        if(age<10){
+            throw new Exception("你太嫩了");
+        }else if(age <16){
+            throw new Exception("你在大一点就好了");
+        }else{
+            throw new Exception("可以了");
+        }
+    }
 }

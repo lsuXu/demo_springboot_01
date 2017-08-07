@@ -2,8 +2,10 @@ package com.xu.demo_springboot_01.controller;
 
 import com.xu.demo_springboot_01.aspect.HttpAspect;
 import com.xu.demo_springboot_01.domain.Girl;
+import com.xu.demo_springboot_01.domain.Result;
 import com.xu.demo_springboot_01.repository.GirlRepository;
 import com.xu.demo_springboot_01.services.GirlService;
+import com.xu.demo_springboot_01.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,18 +57,22 @@ import java.util.List;
 
         //插入一个女生
         @PostMapping(value = "/girls")
-        public Girl girls(@Valid Girl girl, BindingResult bindingResult){
+        public Result<Girl> girls(@Valid Girl girl, BindingResult bindingResult){
+            Result result = new Result();
             if(bindingResult.hasErrors()){
-                System.out.println(bindingResult.getFieldError().getDefaultMessage());
-                    return null;
+                return ResultUtil.error(0,bindingResult.getFieldError().getDefaultMessage());
             }
-            return girlRepository.save(girl);
+            return ResultUtil.success(girlRepository.save(girl));
         }
-
-
         //插入两个女生
         @GetMapping(value = "/saveTwo")
         public void saveTwo(){
             girlService.saveTwo();
+        }
+
+        //根据ID判断年龄
+        @GetMapping(value = "/getAge/{id}")
+        public void getAge(@PathVariable("id") Integer id) throws Exception{
+            girlService.getAge(id);
         }
     }
